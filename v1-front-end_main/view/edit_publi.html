@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atualizar Publicação - KomunicaTec</title>
+  <link rel="stylesheet" href="edit_publi.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+   <header>
+        <nav class="nav-bar">
+            <figure class="imagem-icon">
+                <img src="imagens/logo1.png" alt="Logo KomunikaTec" class="img-logo">
+            </figure>
+            <div class="botao-navegacao">
+                <button class="botao" onclick="location.href='index.html'">Home</button>
+                <button class="botaoent" onclick="location.href='login.html'">Entrar</button>
+                <button class="botao-especial" onclick="location.href='register.html'">Cadastrar</button>
+            </div>
+        </nav>
+    </header>
+
+  <main class="main-editar-perfil">
+        <!-- Card do usuário -->
+        <aside class="perfil-card">
+            <img src="imagens/user_icon.jpg" alt="Foto de Perfil" class="foto-perfil">
+            <h2>Silvia Farani</h2>
+            <h1>Coordenadora</h1>
+            <p class="subtitulo">Administrador</p>
+            <div class="info-perfil">
+                <p><strong>E-mail institucional:</strong><br>
+                    <a href="mailto:aluno@fatec.sp.gov.br">aluno@fatec.sp.gov.br</a>
+                </p>
+                <p><strong>Telefone:</strong><br> (11) XXXX-XXXX</p>
+            </div>
+        </aside>
+
+
+
+    <section class="form-section">
+      <h2>Atualizar Publicação</h2>
+
+      <form>
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" placeholder="Digite o título">
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" rows="4" placeholder="Digite a descrição"></textarea>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="expiracao">Expiração:</label>
+            <input type="date" id="expiracao" name="expiracao">
+          </div>
+          <div class="form-group">
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" name="categoria">
+              <option value="">Selecione</option>
+              <option value="vaga">Vaga</option>
+              <option value="curso">Curso</option>
+              <option value="evento">Evento</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+        </div>
+
+        <label>Imagens:</label>
+        <div class="upload-area">
+          <div class="upload-box">Selecione imagem</div>
+          <div class="upload-box">Selecione imagem</div>
+        </div>
+
+        <label for="link">Link de redirecionamento:</label>
+        <input type="url" id="link" name="link" placeholder="https://">
+
+        <div class="buttons">
+          <button type="button" class="btn-cancel">Voltar</button>
+          <button class="btn-save" onclick="location.href='publi.html'">salvar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
