@@ -13,9 +13,15 @@ if (!class_exists("Conexao")) // Verifica se a conexão já foi realizada
                 $servidor = "localhost";
                 $usuario  = "root";
                 $senha    = "";
-                $banco    = "jooj";
+                $banco    = "komunicatec";
 
-                $conexao = new PDO("mysql:host=$servidor;dbname=$banco", "$usuario", "$senha");
+                $conexao = new PDO
+                (
+                    "mysql:host=$servidor;dbname=$banco",
+                    "$usuario",
+                    "$senha"
+                );
+                
                 return $conexao;
             }
             catch(PDOException $erro) // Caso encontre um erro, armazena a mensagem em 'erro'
