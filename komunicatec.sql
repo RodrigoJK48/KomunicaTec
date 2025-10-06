@@ -69,7 +69,7 @@ CREATE TABLE publicacao (
 	data_de_publicacao			DATETIME NOT NULL,
 	data_de_ultima_modificacao	DATETIME,
 	log_ultima_modificacao		VARCHAR(100),
-	data_de_expiracao			DATETIME NOT NULL,
+	data_de_expiracao			DATETIME,
 	id_categoria_fk				INT NOT NULL,
 	FOREIGN KEY (id_categoria_fk) REFERENCES categoria(id_categoria),
 	id_cpf_fk					INT NOT NULL,
