@@ -57,6 +57,7 @@ abstract class BaseModel {
      */
     protected function exec(string $sql, array $params = []): bool {
         $stmt = $this->db->prepare($sql);
+        /*teste commit*/
         return $stmt->execute($params);
     }
 
