@@ -1,4 +1,5 @@
-<?php
+<?php // Arquivo de conexão com o banco de dados
+
 if (!class_exists("Conexao")) // Verifica se a conexão já foi realizada
 {
     class Conexao
@@ -7,7 +8,6 @@ if (!class_exists("Conexao")) // Verifica se a conexão já foi realizada
         {
             try // Executa o bloco até encontrar um erro
             {
-                // model/conexao.php
                 // "caminho", "usuario", "senha"
                 // Fatec: host=localhost:3307 senha="alunos"
                 $servidor = "localhost";
@@ -31,9 +31,10 @@ if (!class_exists("Conexao")) // Verifica se a conexão já foi realizada
         }
     }
 }
-// Execução da conexão (testes)
+// Execução da conexão (Ctrl + C)
 /*
-$classe_con = new Conexao();
-$con = $classe_con->Conectar();
+include_once __DIR__ . '/conexao.php'; // "__DIR__" permite referenciar pelo diretório que o arquivo foi chamado
+$classe_con = new Conexao(); // Cria novo objeto de conexão
+$con = $classe_con->Conectar(); // Executa método para conectar banco de dados
 */
 ?>
