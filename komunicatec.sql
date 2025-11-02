@@ -1,5 +1,5 @@
--- Criação da base de dados
-CREATE DATABASE komunicatec;
+-- Criação da base de dados, se não já existir
+CREATE DATABASE IF NOT EXISTS komunicatec;
 USE komunicatec;
 
 -- Declaração das tabelas
@@ -58,7 +58,7 @@ CREATE TABLE perfil_administrador_comunicador (
 -- Categorias de publicações (1:n)
 CREATE TABLE categoria (
 	id_categoria	INT PRIMARY KEY AUTO_INCREMENT,
-	nome			VARCHAR(45) UNIQUE NOT NULL
+	nome_categoria	VARCHAR(45) UNIQUE NOT NULL
 );
 
 -- Publicações
@@ -69,7 +69,7 @@ CREATE TABLE publicacao (
 	data_de_publicacao			DATETIME NOT NULL,
 	data_de_ultima_modificacao	DATETIME,
 	log_ultima_modificacao		VARCHAR(100),
-	data_de_expiracao			DATETIME,
+	data_de_expiracao			DATE,
 	id_categoria_fk				INT NOT NULL,
 	FOREIGN KEY (id_categoria_fk) REFERENCES categoria(id_categoria),
 	id_cpf_fk					INT NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE publicacao (
 -- Mídias de publicações (1:n)
 CREATE TABLE link_publicacao (
 	id_link_publicacao	INT PRIMARY KEY AUTO_INCREMENT,
-	endereco_link		VARCHAR(500),
+	endereco_link		VARCHAR(500) NOT NULL,
 	id_publicacao_fk	INT NOT NULL,
 	FOREIGN KEY (id_publicacao_fk) REFERENCES publicacao(id_publicacao)
 );
