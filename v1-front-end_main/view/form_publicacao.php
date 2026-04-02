@@ -12,7 +12,9 @@ $categorias = $categoria->consultar(); // Executa função de consulta, recebe d
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-	<!-- Navbar -->
+	<?php include __DIR__ . '/navbar.php'; ?>
+
+	<!-- Navbar >
 	<header>
 		<nav class="nav-bar">
 			<figure class="imagem-icon">
@@ -24,7 +26,7 @@ $categorias = $categoria->consultar(); // Executa função de consulta, recebe d
 				<button class="botao-especial" onclick="location.href='register.html'">Cadastrar</button>
 			</div>
 		</nav>
-	</header>
+	</header-->
 
 	<main class="main-editar-perfil">
 		<!-- Card do usuário -->

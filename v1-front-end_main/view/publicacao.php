@@ -15,21 +15,11 @@ $publicados = $publicacao->consultar_todos(); // Executa função de consulta, r
 </head>
 
 <body>
+	<?php include __DIR__ . '/navbar.php'; ?>
+
 
 	<!-- Navbar -->
-	<header>
-		<nav class="nav-bar">
-			<figure class="imagem-icon">
-				<img src="imagens/logo1.png" alt="Logo KomunikaTec" class="img-logo">
-			</figure>
-			<div class="botao-navegacao">
-				<button class="botao" onclick="location.href='index.html'">Home</button>
-				<button class="botaoent" onclick="location.href='login.html'">Entrar</button>
-				<button class="botao-especial" onclick="location.href='register.html'">Cadastrar</button>
-			</div>
-		</nav>
-	</header>
-
+	
 	<main>
 		<!-- Barra de pesquisa -->
 		<div class="search-bar">
@@ -66,10 +56,10 @@ $publicados = $publicacao->consultar_todos(); // Executa função de consulta, r
 					<span class="date">Publicado em <?= date("d/m/Y H:i", strtotime($publicado["data_de_publicacao"])) // Formato da data, converte valor string para tempo ?></span>
                     <!-- "whitespace: pre-line" converte quebras de linha para HTML -->
 					<p style="white-space: pre-line;"><?= $publicado["descricao"] ?></p>
-					<div class="images">
+					<!--div class="images">
 						<img src="simbaju.png" alt="Imagem 1">
 						<img src="evento.png" alt="Imagem 2">
-					</div>
+					</div-->
                     <?php
                     if (isset($publicado["endereco_link"]) && $publicado["endereco_link"] != null)
 					{
@@ -81,7 +71,7 @@ $publicados = $publicacao->consultar_todos(); // Executa função de consulta, r
 			</div>
             <?php endforeach; ?>
 
-            <!-- Publicações base -->
+            <!-- Publicações base >
 			<div class="card">
 				<div class="card-header">
 					<img src="perfil.jpg" alt="Foto perfil" class="card-profile">
@@ -124,7 +114,7 @@ $publicados = $publicacao->consultar_todos(); // Executa função de consulta, r
 					</div>
 					<a href="https://www.linkparavaga.com" class="link">https://www.linkparavaga.com</a>
 				</div>
-			</div>
+			</div-->
 
 		</section>
 	</main>

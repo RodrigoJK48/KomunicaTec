@@ -17,8 +17,10 @@ $categorias = $categoria->consultar();
 </head>
 
 <body>
+    <?php include __DIR__ . '/navbar.php'; ?>
+
     <!-- Navbar -->
-   <header>
+   <!--header>
         <nav class="nav-bar">
             <figure class="imagem-icon">
                 <img src="imagens/logo1.png" alt="Logo KomunikaTec" class="img-logo">
@@ -29,7 +31,7 @@ $categorias = $categoria->consultar();
                 <button class="botao-especial" onclick="location.href='register.html'">Cadastrar</button>
             </div>
         </nav>
-    </header>
+    </header-->
     <!-- Layout principal -->
     <main class="container">
         <!-- Card lateral -->
@@ -104,7 +106,7 @@ $categorias = $categoria->consultar();
 
 
             
-            <!-- Base de publicações -->
+            <!-- Base de publicações >
             <div class="publicacao-card">
                 <div class="cabecalho">
                     <h2>Convite ao Simbaju DSM!</h2>
@@ -115,7 +117,7 @@ $categorias = $categoria->consultar();
                     Estudantes do GT1 e G3E estão convidados.
                 </p>
                 <div class="acoes">
-                   <button class="editar" onclick="location.href='form_publicacao.html'">Editar</button>
+                   <button class="editar">Editar</button>
                     <button class="excluir">Excluir</button>
                 </div>
             </div>
@@ -130,10 +132,10 @@ $categorias = $categoria->consultar();
                     Interessados, por favor, clicar no link.
                 </p>
                 <div class="acoes">
-                    <button class="editar" onclick="location.href='form_publicacao.html'">Editar</button>
+                    <button class="editar">Editar</button>
                     <button class="excluir">Excluir</button>
                 </div>
-            </div>
+            </div-->
         </section>
     </main>
 
