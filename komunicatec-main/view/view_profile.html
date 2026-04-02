@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - KomunicaTec</title>
+    <link rel="stylesheet" href="view_profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Barra de navegação -->
+    <header>
+        <nav class="nav-bar">
+            <img src="imagens/logo1.png" alt="Logo KomunicaTec" class="img-logo">
+            <div class="botao-navegacao">
+                <button class="botao" onclick="location.href='index.html'">Home</button>
+                <button class="botao" onclick="location.href='sobre.html'">Sobre</button>
+                <button class="botao" onclick="location.href='explorar.html'">Perfis</button>
+                <button class="botao-especial" onclick="location.href='view_profile.html'">Meu Perfil</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="container">
+        <!-- Card do usuário -->
+        <aside class="perfil-card">
+            <img src="imagens/user_icon.jpg" alt="Foto de Perfil" class="foto-perfil">
+            <h2>Nome do perfil</h2>
+            <p class="cargo">Discente</p>
+
+            <p class="label">e-mail institucional:</p>
+            <p>aluno@fatec.sp.gov.br</p>
+            <button class="contatar">
+                Contatar <i class="fa-regular fa-envelope" style="color: #ffffff;"></i>
+            </button><br>
+
+            <p class="label">Telefone:</p>
+            <p>(11) xxxx-xxxx</p>
+            <button class="contatar">
+                Contatar <i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i>
+            </button>
+        </aside>
+
+        <section class="perfil-info">
+            <h1>Perfil</h1>
+            <h3>Descrição:</h3>
+            <p>
+                Além de graduando aqui na Fatec, possuo formação técnica em Desenvolvimento de Sistemas.
+                O técnico pode me fornecer uma boa base das tecnologias previstas para o curso. Após me formar,
+                planejo iniciar uma pós-graduação em Inteligência Artificial, pois planejo atuar com a construção
+                de modelos de IA supervisionados.
+            </p>
+
+            <div class="dados">
+                <p><span class="label">Curso:</span><br> Desenvolvimento de Software Multiplataforma</p>
+                <p><span class="label">Turno:</span><br> Matutino</p>
+                <p><span class="label">Semestre:</span><br> 2 Semestre</p>
+                <p><span class="label">Situação:</span><br> Em curso</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 - KomunicaTec</p>
+    </footer>
+
+</body>
+
+</html>

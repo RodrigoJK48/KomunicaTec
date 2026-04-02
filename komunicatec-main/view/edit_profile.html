@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil - KomunicaTec</title>
+    <link rel="stylesheet" href="edit_profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Barra de navegação -->
+    <header>
+        <nav class="nav-bar">
+            <img src="imagens/logo1.png" alt="Logo KomunicaTec" class="img-logo">
+            <div class="botao-navegacao">
+                <button class="botao" onclick="location.href='index.html'">Home</button>
+                <button class="botao" onclick="location.href='sobre.html'">Sobre</button>
+                <button class="botao" onclick="location.href='explorar.html'">Perfis</button>
+                <button class="botao-especial" onclick="location.href='view_profile.html'">Meu Perfil</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="main-editar-perfil">
+        <!-- Card do usuário -->
+        <aside class="perfil-card">
+            <img src="imagens/user_icon.jpg" alt="Foto de Perfil" class="foto-perfil">
+            <h2>Nome do Aluno</h2>
+            <p class="subtitulo">Discente</p>
+            <div class="info-perfil">
+            <p><strong>RA:</strong><br> XXX.XXX.XXX-XX</p>
+            <p><strong>E-mail institucional:</strong><br>
+                <a href="mailto:aluno@fatec.sp.gov.br">aluno@fatec.sp.gov.br</a>
+            </p>
+            <p><strong>Telefone:</strong><br> (11) XXXX-XXXX</p>
+            </div>
+        </aside>
+
+        <!-- Formulário de edição -->
+        <section class="formulario-editar">
+            <h1>Editar Perfil</h1>
+            <form action="salvar-perfil.php" method="post" class="form-perfil">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" class="inputs-login">
+
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" id="sobrenome" name="sobrenome" class="inputs-login">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="inputs-login">
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" class="inputs-login">
+                <div class="checkbox-publico">
+                    <input type="checkbox" id="publico" name="publico">
+                    <label for="publico">Desejo exibir meu contato para outros usuários</label>
+                </div>
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" class="inputs-login">
+
+                <div class="linha-dupla">
+                    <div>
+                        <label for="curso">Curso:</label>
+                        <input type="text" id="curso" name="curso" class="inputs-login">
+                    </div>
+                    <div>
+                        <label for="turno">Turno:</label>
+                        <input type="text" id="turno" name="turno" class="inputs-login">
+                    </div>
+                </div>
+
+                <div class="linha-dupla">
+                    <div>
+                        <label for="semestre">Semestre:</label>
+                        <input type="text" id="semestre" name="semestre" class="inputs-login">
+                    </div>
+                    <div>
+                        <label for="situacao">Situação:</label>
+                        <input type="text" id="situacao" name="situacao" class="inputs-login">
+                    </div>
+                </div>
+
+                <div class="botoes-form">
+                    <button type="button" class="botao" onclick="history.back()">Voltar</button>
+                    <button type="submit" class="butenviar">Salvar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2025 - KomunicaTec</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>KomunikaTec</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-bar">
+            <figure class="imagem-icon">
+                <img src="imagens/logo1.png" alt="Logo KomunikaTec" class="img-logo">
+            </figure>
+            <div class="botao-navegacao">
+                <button class="botao" onclick="location.href='index.html'">Home</button>
+                <button class="botaoent" onclick="location.href='login.html'">Entrar</button>
+                <button class="botao-especial" onclick="location.href='register.html'">Cadastrar</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="campo-bg-login">
+            <div class="caixa-login">
+                <article>
+                    <figure>
+                        <img class="imagem-div1" src="imagens/foto do login-cortada.png"
+                            alt="Imagem decorativa de login">
+                    </figure>
+                    <section class="login-size">
+                        <h2 class="titulo-login disp">Cadastrar</h2>
+
+                        <p class="span-login disp">
+                            <a href="#" id="adminLink" class="active">admin ou comunicador </a> &ensp; | &ensp;
+                            <a href="#" id="alunoLink" class="inactive"> aluno ou ex-aluno</a>
+                        </p>
+ <!-- Formulário dinâmico (campos trocados via JS) -->
+                        <form action="">
+                            <div id="formFields">
+                            
+                                <label for="email" class="visually-hidden" >Email ou CPF</label>
+                                <input id="email" class="inputs-login disp" type="text" placeholder="email ou CPF" required><br>
+
+                                <label for="senha" class="visually-hidden">Senha</label>
+                                <input id="senha" class="inputs-login disp" type="password" placeholder="senha"required><br>
+                            </div>
+
+                            <p class="cadastro-link">
+                                Já tem conta? <a href="login.html">Entrar</a>
+                            </p>
+
+                            <label class="checkbox-container">
+                                <input type="checkbox" required>
+                                <span class="custom-checkbox"></span>
+                                <span>Eu li e aceito a Política de Privacidade</span>
+                            </label>
+
+                            <button class="butenviar" type="submit">Cadastrar</button>
+                        </form>
+                    </section>
+
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        const adminLink = document.getElementById("adminLink");
+        const alunoLink = document.getElementById("alunoLink");
+        const formFields = document.getElementById("formFields");
+
+        adminLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            formFields.innerHTML = `
+        <label for="email" class="visually-hidden">Email ou CPF</label>
+        <input id="email" class="inputs-login disp" type="text" placeholder="email ou CPF"><br>
+        <label for="senha" class="visually-hidden">Senha</label>
+        <input id="senha" class="inputs-login disp" type="password" placeholder="senha"><br>
+    `;
+            adminLink.classList.add("active");
+            adminLink.classList.remove("texto-secundario");
+            alunoLink.classList.remove("active");
+            alunoLink.classList.add("texto-secundario");
+        });
+
+        alunoLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            formFields.innerHTML = `
+        <label for="ra" class="visually-hidden">RA</label>
+        <input id="ra" class="inputs-login disp" type="text" placeholder="RA (registro acadêmico)"><br>
+        <label for="senhaAluno" class="visually-hidden">Senha</label>
+        <input id="senhaAluno" class="inputs-login disp" type="password" placeholder="senha"><br>
+    `;
+            alunoLink.classList.add("active");
+            alunoLink.classList.remove("texto-secundario");
+            adminLink.classList.remove("active");
+            adminLink.classList.add("texto-secundario");
+        });
+
+    </script>
+</body>
+
+</html>

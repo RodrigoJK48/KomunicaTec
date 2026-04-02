@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Navbar */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.img-logo {
+    width: 200px;
+    height: auto;
+}
+
+.botao-navegacao button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botao {
+    background: none;
+    color: #000;
+}
+
+.botao:hover {
+    text-decoration: underline;
+}
+
+.botao-especial {
+    background-color: #1F496B;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.botao-especial:hover {
+    background-color: #5f819c;
+}
+
+.botao {
+    border-color: #ced6dd;
+    border-radius: 5px;
+    background-color: white;
+    color: #1F496B;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background-color: #b0bbc4;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+/* Layout */
+.container {
+    display: flex;
+    gap: 50px;
+    padding: 40px 60px;
+}
+
+/* Card lateral */
+.perfil-card {
+   width: 250px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+.foto-perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.perfil-card h2 {
+    color: #1F496B;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.perfil-card p{
+    padding-bottom: 5px;
+    font-size: 12px;
+}
+
+.perfil-card .cargo {
+    font-size: 14px;
+    color: #1F496B;
+    margin-bottom: 20px;
+}
+.label {
+    font-size: 13px;
+    color: #1F496B;
+    font-weight: 500;
+}
+.contatar {
+    background: #1F496B;
+    opacity: 70%;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 8px 0;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.contatar:hover {
+    background: #ccc;
+}
+
+
+.perfil-info {
+    flex: 1;
+    padding: 3rem;
+    padding-right: 20rem;
+}
+.perfil-info h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #1F496B;
+}
+.perfil-info h3 {
+    font-size: 16px;
+    color: #1F496B;
+    margin-bottom: 10px;
+}
+.perfil-info p {
+    margin-bottom: 5rem;
+    line-height: 1.5;
+}
+.dados {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.dados p {
+    margin: 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1F496B;
+    color: #fff;
+    margin-top: 50px;
+}

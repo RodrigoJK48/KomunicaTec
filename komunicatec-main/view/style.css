@@ -1,0 +1,319 @@
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+.botao {
+    background: none;
+    border: none;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    cursor: pointer;
+}
+
+.botao:hover {
+    text-decoration: underline
+}
+
+.botaoent {
+    background: none;
+    font-size: 15px;
+    background-color: #1F496B;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    margin-right: 50px;
+    margin-left: 50px;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.botao-navegacao {
+    justify-content: space-between;
+}
+
+.botaoent:hover {
+    background-color: #5f819c;
+}
+
+.botao-especial {
+    border-color: #1F496B;
+    border-radius: 5px;
+    background-color: white;
+    color: #1F496B;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.botao-especial:hover {
+    background-color: #5f819c;
+    color: #ffffff;
+}
+
+.botao-navegação {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+}
+
+.img-logo {
+    padding-top: 5px;
+    width: 270px;
+    height: 55px;
+}
+
+main {
+    text-align: center;
+}
+
+.imgf {
+    background-image: url(imagens/Fatec.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(50, 50, 50, 0.7);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 50px 50px;
+}
+
+.textmain {
+    font-size: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: left;
+    padding-bottom: 30px;
+}
+
+.textimg {
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: left;
+    padding-bottom: 40px;
+}
+
+.botvisu {
+    border: 2px solid #1F496B;
+    border-radius: 5px;
+    background-color: white;
+    color: #1F496B;
+    width: 200px;
+    height: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botvisu:hover {
+    background-color: #5f819c;
+    color: #ffffff;
+}
+
+.overlay {
+    background-color: rgba(39, 65, 102, 0.6);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.campo-bg-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+}
+
+.imagem-div1 {
+    width: 500px;
+    height: 250px;
+}
+
+.caixa-login article {
+    display: flex;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 90%;
+    max-width: 1380px;
+    margin-top: 20%;
+    align-items: flex-start;
+}
+
+.inputs-login {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    padding: 5px 0px 0px 0px;
+    outline: none;
+    font-size: 17px;
+}
+
+.titulo-login {
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px 50px;
+}
+
+.span-login {
+    font-size: 25px;
+    padding-bottom: 80px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 100px;
+}
+
+.disp {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    background-color: #1F496B;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.rodapelogin {
+    width: 20%;
+}
+
+/* Ícone hamburguer escondido por padrão (desktop) */
+.menu-toggle {
+    display: none;
+}
+
+/* ----------- RESPONSIVIDADE (MOBILE) ----------- */
+@media (max-width: 768px) {
+
+    /* Navbar ajustada */
+    .nav-bar {
+        justify-content: space-between;
+        padding: 15px 20px;
+    }
+
+    .img-logo {
+        width: 150px;
+        height: auto;
+    }
+
+    .botao-navegacao {
+        display: none;
+        /* esconde botões grandes */
+    }
+
+    /* Menu hamburguer (ícone de 3 linhas) */
+    .menu-toggle {
+        display: block;
+        font-size: 28px;
+        cursor: pointer;
+        color: #1F496B;
+    }
+
+    /* Hero section */
+    .imgf {
+        height: auto;
+        min-height: 300px;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .main {
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .textmain {
+        font-size: 24px;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .textimg {
+        font-size: 16px;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .botvisu {
+        width: auto;
+        padding: 10px 15px;
+        height: auto;
+        font-size: 14px;
+    }
+
+    /* Sobre a plataforma */
+    .titulo-login {
+        font-size: 20px;
+        padding: 20px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .campo-bg-login {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .caixa-login article {
+        flex-direction: column-reverse;
+        text-align: center;
+        margin-top: 0;
+        height: auto;
+    }
+
+    .span-login {
+        font-size: 16px;
+        padding: 20px 0;
+        text-align: left;
+    }
+
+    .imagem-div1 {
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    /* Rodapé */
+    footer {
+        position: relative;
+        padding: 20px 0;
+    }
+
+    .rodapelogin {
+        width: 50%;
+    }
+}
