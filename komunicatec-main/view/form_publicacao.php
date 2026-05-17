@@ -8,40 +8,22 @@ $categorias = $categoria->consultar(); // Executa função de consulta, recebe d
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Atualizar Publicação - KomunicaTec</title>
+	<link rel="stylesheet" href="cabecario.css">
+	<link rel="stylesheet" href="footer.css">
 	<link rel="stylesheet" href="edit_publi.css">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-	<!-- Navbar -->
-	<header>
-		<nav class="nav-bar">
-			<figure class="imagem-icon">
-				<img src="imagens/logo1.png" alt="Logo KomunikaTec" class="img-logo">
-			</figure>
-			<div class="botao-navegacao">
-				<button class="botao" onclick="location.href='index.html'">Home</button>
-				<button class="botaoent" onclick="location.href='login.html'">Entrar</button>
-				<button class="botao-especial" onclick="location.href='register.html'">Cadastrar</button>
-			</div>
-		</nav>
-	</header>
+	<!-- Cabeçalho e navegação principal -->
+	<?php
+	include_once 'cabecario.php'; // Inclui o código arquivo uma vez, evitando repetição ao recarregar a página
+	?>
 
 	<main class="main-editar-perfil">
-		<!-- Card do usuário -->
-		<aside class="perfil-card">
-			<img src="imagens/user_icon.jpg" alt="Foto de Perfil" class="foto-perfil">
-			<h2>Silvia Farani</h2>
-			<h1>Coordenadora</h1>
-			<p class="subtitulo">Administrador</p>
-			<div class="info-perfil">
-				<p><strong>E-mail institucional:</strong><br>
-					<a href="mailto:aluno@fatec.sp.gov.br">aluno@fatec.sp.gov.br</a>
-				</p>
-				<p><strong>Telefone:</strong><br> (11) XXXX-XXXX</p>
-			</div>
-		</aside>
-
-
+		<!-- Card lateral -->
+		<?php
+		include_once 'card_perfil.php'; // Inclui o código arquivo uma vez, evitando repetição ao recarregar a página
+		?>
 
 		<section class="form-section">
 			<h2>Atualizar Publicação</h2>
@@ -79,9 +61,9 @@ $categorias = $categoria->consultar(); // Executa função de consulta, recebe d
 					<div class="form-group">
 						<label for="expiracao">Expiração:</label>
 						<?php echo '<input type="date" id="expiracao" name="expiracao"';
-						if (isset($data_de_expiracao))
+						if (isset($data_expiracao))
 						{
-							echo ' value="'.$data_de_expiracao.'"';
+							echo ' value="'.$data_expiracao.'"';
 						}
 						echo '>';
 						?>
@@ -128,14 +110,32 @@ $categorias = $categoria->consultar(); // Executa função de consulta, recebe d
 				{
 					echo '<input type="hidden" id="id_publicacao" name="id_publicacao" value='.$id_publicacao.'>';
 				}
+				if (isset($id_cpf_fk))
+				{
+					echo '<input type="hidden" id="id_cpf_fk" name="id_cpf_fk" value='.$id_cpf_fk.'>';
+				}
 				?>
 
 				<div class="buttons">
-					<button type="button" class="btn-cancel" onclick="location.href='publicacao_usuario.php'">Voltar</button>
+					<?php
+					echo '<button type="button" class="btn-cancel" onclick="location.href=`publicacao_usuario.php';
+					if (isset($id_cpf_fk)) { echo '?comunicador='.$id_cpf_fk; }
+					else
+					{
+						if (session_status() === PHP_SESSION_NONE) session_start(); // Se não houver sessão iniciada, inicia sessão
+						echo '?comunicador='.$_SESSION["id_cpf"];
+					}
+					echo '`">Voltar</button>';
+					?>
+					<!--button type="button" class="btn-cancel" onclick="location.href='publicacao_usuario.php'">Voltar</button-->
 					<button class="btn-save" type="submit">Salvar</button>
 				</div>
 			</form>
 		</section>
 	</main>
+	<!-- Rodapé -->
+	<footer>
+		<p>© 2025 - KomunicaTec</p>
+	</footer>
 </body>
 </html>

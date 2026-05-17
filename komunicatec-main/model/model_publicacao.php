@@ -10,10 +10,10 @@ class Publicacao // Declaração da classe
     private $id_publicacao;
     private $titulo;
     private $descricao;
-    private $data_de_publicacao;
-    private $data_de_ultima_modificacao;
+    private $data_publicacao;
+    private $data_ultima_modificacao;
     private $log_ultima_modificacao;
-    private $data_de_expiracao;
+    private $data_expiracao;
     private $id_categoria_fk;
     private $id_cpf_fk;
 
@@ -49,8 +49,8 @@ class Publicacao // Declaração da classe
             (
                 titulo,
                 descricao,
-                data_de_publicacao,
-                data_de_expiracao,
+                data_publicacao,
+                data_expiracao,
                 id_categoria_fk,
                 id_cpf_fk
             )
@@ -60,8 +60,8 @@ class Publicacao // Declaração da classe
         $valores_cadastro = array(
             $this->titulo,
             $this->descricao,
-            date('Y-m-d H:i:s'), // data_de_publicação: Gera data e hora no formato MySQL: yyyy-mm-dd
-            $this->data_de_expiracao,
+            date('Y-m-d H:i:s'), // data_publicação: Gera data e hora no formato MySQL: yyyy-mm-dd
+            $this->data_expiracao,
             $this->id_categoria_fk,
             $this->id_cpf_fk
         );
@@ -81,10 +81,77 @@ class Publicacao // Declaração da classe
             p.id_publicacao,
             p.titulo,
             p.descricao,
-            p.data_de_publicacao,
-            p.data_de_ultima_modificacao,
+            p.data_publicacao,
+            p.data_ultima_modificacao,
             p.log_ultima_modificacao,
-            p.data_de_expiracao,
+            p.data_expiracao,
+
+            c.id_categoria,
+            c.nome_categoria,
+
+            p.id_cpf_fk,
+            us.nome,
+            us.sobrenome,
+            u.cargo,
+
+            l.id_link_publicacao,
+            l.endereco_link
+        FROM
+            publicacao p
+        LEFT JOIN
+            perfil_administrador_comunicador u ON u.id_cpf = p.id_cpf_fk
+        LEFT JOIN
+            usuario us ON us.id_usuario = u.id_usuario_fk
+        LEFT JOIN
+            categoria c ON c.id_categoria = p.id_categoria_fk
+        LEFT JOIN
+            link_publicacao l ON p.id_publicacao = l.id_publicacao_fk
+        ORDER BY
+            p.data_publicacao DESC";
+        // LEFT JOIN permite que publicações sem links ou categorias sejam exibidas
+
+        $executar = $this->con->prepare($consulta_SQL); // Prepara o comando de seleção e o armazena
+        $executar->execute(); // Executa o comando sem especificações
+        
+        $publicacoes = array(); // Array que armazena resultado da consulta
+        foreach ($executar->fetchAll() as $valor) // Para cada linha do resultado da execução (consulta), armazena a linha em $valor
+        {
+            $publicacoes [] = [
+                "id_publicacao"                 => $valor['id_publicacao'],
+                "titulo"                        => $valor['titulo'],
+                "descricao"                     => $valor['descricao'],
+                "data_publicacao"            => $valor['data_publicacao'],
+                "data_ultima_modificacao"    => $valor['data_ultima_modificacao'],
+                "log_ultima_modificacao"        => $valor['log_ultima_modificacao'],
+                "data_expiracao"             => $valor['data_expiracao'],
+
+                "id_categoria"                  => $valor['id_categoria'],
+                "nome_categoria"                => $valor['nome_categoria'],
+
+                "id_cpf_fk"                     => $valor['id_cpf_fk'],
+                "nome"                          => $valor['nome'],
+                "sobrenome"                     => $valor['sobrenome'],
+                "cargo"                         => $valor['cargo'],
+                
+                "id_link_publicacao"            => $valor['id_link_publicacao'],
+                "endereco_link"                 => $valor['endereco_link']
+            ];
+        }
+        return $publicacoes; // Retorna o array da consulta
+    }
+
+    public function consultar_usuario() // Consulta dados da tabela, especificando um usuário
+    {
+        // Comando SQL de seleção
+        // Comando SQL de seleção
+        $consulta_SQL = "SELECT
+            p.id_publicacao,
+            p.titulo,
+            p.descricao,
+            p.data_publicacao,
+            p.data_ultima_modificacao,
+            p.log_ultima_modificacao,
+            p.data_expiracao,
 
             c.id_categoria,
             c.nome_categoria,
@@ -99,13 +166,16 @@ class Publicacao // Declaração da classe
             categoria c ON c.id_categoria = p.id_categoria_fk
         LEFT JOIN
             link_publicacao l ON p.id_publicacao = l.id_publicacao_fk
+        WHERE
+            p.id_cpf_fk = ?
         ORDER BY
-            p.data_de_publicacao DESC";
+            p.data_publicacao DESC";
         // LEFT JOIN permite que publicações sem links ou categorias sejam exibidas
 
+        $valor_busca = array($this->id_cpf_fk); // Armazena o parâmetro de busca
         $executar = $this->con->prepare($consulta_SQL); // Prepara o comando de seleção e o armazena
-        $executar->execute(); // Executa o comando sem especificações
-        
+        $executar->execute($valor_busca); // Executa o comando com o valor especificado
+
         $publicacoes = array(); // Array que armazena resultado da consulta
         foreach ($executar->fetchAll() as $valor) // Para cada linha do resultado da execução (consulta), armazena a linha em $valor
         {
@@ -113,10 +183,10 @@ class Publicacao // Declaração da classe
                 "id_publicacao"                 => $valor['id_publicacao'],
                 "titulo"                        => $valor['titulo'],
                 "descricao"                     => $valor['descricao'],
-                "data_de_publicacao"            => $valor['data_de_publicacao'],
-                "data_de_ultima_modificacao"    => $valor['data_de_ultima_modificacao'],
+                "data_publicacao"               => $valor['data_publicacao'],
+                "data_ultima_modificacao"       => $valor['data_ultima_modificacao'],
                 "log_ultima_modificacao"        => $valor['log_ultima_modificacao'],
-                "data_de_expiracao"             => $valor['data_de_expiracao'],
+                "data_expiracao"                => $valor['data_expiracao'],
 
                 "id_categoria"                  => $valor['id_categoria'],
                 "nome_categoria"                => $valor['nome_categoria'],
@@ -138,9 +208,9 @@ class Publicacao // Declaração da classe
         $atualiza_SQL = "UPDATE publicacao SET
             titulo = ?,
             descricao = ?,
-            data_de_ultima_modificacao = ?,
+            data_ultima_modificacao = ?,
             log_ultima_modificacao = ?,
-            data_de_expiracao = ?,
+            data_expiracao = ?,
             id_categoria_fk = ?
         WHERE id_publicacao = ? ORDER BY id_publicacao ASC LIMIT 1";
 
@@ -148,9 +218,9 @@ class Publicacao // Declaração da classe
         $valores_atualizacao = array(
             $this->titulo,
             $this->descricao,
-            date('Y-m-d H:i:s'), // data_de_ultima_modificacao: Gera data e hora no formato MySQL: yyyy-mm-dd
+            date('Y-m-d H:i:s'), // data_ultima_modificacao: Gera data e hora no formato MySQL: yyyy-mm-dd
             $this->log_ultima_modificacao,
-            $this->data_de_expiracao,
+            $this->data_expiracao,
             $this->id_categoria_fk,
             $this->id_publicacao
         );

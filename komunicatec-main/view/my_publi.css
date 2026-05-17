@@ -81,6 +81,7 @@ body {
     gap: 50px;
     padding: 40px 60px;
     padding-right: 20rem;
+    min-height: 580px;
 }
 
 /* Card lateral */
@@ -218,14 +219,4 @@ body {
 
 .excluir:hover {
     background: #9a1f1f;
-}
-
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #1F496B;
-    color: #fff;
-    margin-top: 50px;
 }
