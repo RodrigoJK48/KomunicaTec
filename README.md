@@ -6,3 +6,9 @@ Projeto Integrador avaliativo no curso Desenvolvimento de Software Multiplatafor
 Extensão Visual Studio Code com GitHub: GitHub Codespaces.Disponível em: https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces
 
 Utilização: Copiar link do repositório na barra de busca supeior da IDE.
+
+Perfis exemplos:
+• E-mail: silvia@fatec.sp.gov.br
+• Senha: Silvia1234#
+• E-mail: paulo@fatec.sp.gov.br
+• Senha: Paulo1234#
