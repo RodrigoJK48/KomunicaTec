@@ -8,7 +8,15 @@ Extensão Visual Studio Code com GitHub: GitHub Codespaces.Disponível em: https
 Utilização: Copiar link do repositório na barra de busca supeior da IDE.
 
 Perfis exemplos:
+
+Silvia Farani
+
 • E-mail: silvia@fatec.sp.gov.br
+
 • Senha: Silvia1234#
+
+Paulo Jacobsen
+
 • E-mail: paulo@fatec.sp.gov.br
+
 • Senha: Paulo1234#
