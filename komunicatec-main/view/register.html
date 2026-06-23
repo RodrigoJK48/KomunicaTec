@@ -20,24 +20,24 @@
             </figure>
             <div class="botao-navegacao">
                 <button class="botao" onclick="location.href='index.html'">Home</button>
-                <button class="botaoent" onclick="location.href='login.html'">Entrar</button>
+                <button class="botao-entrar" onclick="location.href='login.html'">Entrar</button>
                 <button class="botao-especial" onclick="location.href='register.html'">Cadastrar</button>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="campo-bg-login">
-            <div class="caixa-login">
+        <section class="fundo-login">
+            <div class="caixa-acesso">
                 <article>
                     <figure>
-                        <img class="imagem-div1" src="imagens/foto do login-cortada.png"
+                        <img class="divisao-imagem" src="imagens/foto do login-cortada.png"
                             alt="Imagem decorativa de login">
                     </figure>
                     <section class="login-size">
-                        <h2 class="titulo-login disp">Cadastrar</h2>
+                        <h2 class="titulo-login exibir-central">Cadastrar</h2>
 
-                        <p class="span-login disp">
+                        <p class="span-login exibir-central">
                             <a href="#" id="adminLink" class="active">admin ou comunicador </a> &ensp; | &ensp;
                             <a href="#" id="alunoLink" class="inactive"> aluno ou ex-aluno</a>
                         </p>
@@ -45,11 +45,11 @@
                         <form action="">
                             <div id="formFields">
                             
-                                <label for="email" class="visually-hidden" >Email ou CPF</label>
-                                <input id="email" class="inputs-login disp" type="text" placeholder="email ou CPF" required><br>
+                                <label for="email" class="oculto-visual" >Email ou CPF</label>
+                                <input id="email" class="inputs-login exibir-central" type="text" placeholder="email ou CPF" required><br>
 
-                                <label for="senha" class="visually-hidden">Senha</label>
-                                <input id="senha" class="inputs-login disp" type="password" placeholder="senha"required><br>
+                                <label for="senha" class="oculto-visual">Senha</label>
+                                <input id="senha" class="inputs-login exibir-central" type="password" placeholder="senha"required><br>
                             </div>
 
                             <p class="cadastro-link">
@@ -62,7 +62,7 @@
                                 <span>Eu li e aceito a Política de Privacidade</span>
                             </label>
 
-                            <button class="butenviar" type="submit">Cadastrar</button>
+                            <button class="botao-enviar" type="submit">Cadastrar</button>
                         </form>
                     </section>
 
@@ -83,10 +83,10 @@
         adminLink.addEventListener("click", (e) => {
             e.preventDefault();
             formFields.innerHTML = `
-        <label for="email" class="visually-hidden">Email ou CPF</label>
-        <input id="email" class="inputs-login disp" type="text" placeholder="email ou CPF"><br>
-        <label for="senha" class="visually-hidden">Senha</label>
-        <input id="senha" class="inputs-login disp" type="password" placeholder="senha"><br>
+        <label for="email" class="oculto-visual">Email ou CPF</label>
+        <input id="email" class="inputs-login exibir-central" type="text" placeholder="email ou CPF"><br>
+        <label for="senha" class="oculto-visual">Senha</label>
+        <input id="senha" class="inputs-login exibir-central" type="password" placeholder="senha"><br>
     `;
             adminLink.classList.add("active");
             adminLink.classList.remove("texto-secundario");
@@ -97,10 +97,10 @@
         alunoLink.addEventListener("click", (e) => {
             e.preventDefault();
             formFields.innerHTML = `
-        <label for="ra" class="visually-hidden">RA</label>
-        <input id="ra" class="inputs-login disp" type="text" placeholder="RA (registro acadêmico)"><br>
-        <label for="senhaAluno" class="visually-hidden">Senha</label>
-        <input id="senhaAluno" class="inputs-login disp" type="password" placeholder="senha"><br>
+        <label for="ra" class="oculto-visual">RA</label>
+        <input id="ra" class="inputs-login exibir-central" type="text" placeholder="RA (registro acadêmico)"><br>
+        <label for="senhaAluno" class="oculto-visual">Senha</label>
+        <input id="senhaAluno" class="inputs-login exibir-central" type="password" placeholder="senha"><br>
     `;
             alunoLink.classList.add("active");
             alunoLink.classList.remove("texto-secundario");

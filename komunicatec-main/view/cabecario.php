@@ -10,10 +10,10 @@
 			
 			if (!isset($_SESSION['usuario_ativo']) || $_SESSION['usuario_ativo'] == FALSE) : // Verifica se há um usuário ativo, se a variável foi declarada
 			?>
-				<button class="botaoent" onclick="location.href='login.php'">Entrar</button>
+				<button class="botao-entrar" onclick="location.href='login.php'">Entrar</button>
 				<button class="botao-especial" onclick="location.href='register.html'">Cadastrar</button>
 			<?php else: // Se a variável foi declarada ?>
-				<button class="botvisu" onclick="location.href='publicacao.php'">Publicações</button>
+				<button class="botao-visualizar" onclick="location.href='publicacao.php'">Publicações</button>
 				<?php
 				echo '<img src="imagens/user_icon.jpg" alt="Acessar Perfil" class="nav-profile" title="Acessar Perfil"';
 				if (isset($_SESSION['id_cpf']))
@@ -27,6 +27,6 @@
 				?>
 			<?php endif ?>
 		</div>
-		<div class="menu-toggle">☰</div><!-- Menu para versão mobile -->
+		<div class="alternar-menu">☰</div><!-- Menu para versão mobile -->
 	</nav>
 </header>

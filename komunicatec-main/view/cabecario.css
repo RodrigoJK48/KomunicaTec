@@ -1,4 +1,4 @@
-.botvisu {
+.botao-visualizar {
 	border: 2px solid #1F496B;
 	border-radius: 5px;
 	background-color: white;
@@ -9,7 +9,7 @@
 	cursor: pointer;
 }
 
-.botvisu:hover {
+.botao-visualizar:hover {
 	background-color: #5f819c;
 	color: #ffffff;
 }
@@ -23,6 +23,6 @@ img.nav-profile {
 }
 
 /* Ícone hamburguer escondido por padrão (desktop) */
-.menu-toggle {
+.alternar-menu {
 	display: none;
 }

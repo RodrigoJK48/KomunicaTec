@@ -176,7 +176,7 @@ body {
     margin-top: 20px;
 }
 
-.butenviar {
+.botao-enviar {
     background-color: #1F496B;
     color: #fff;
     border: none;
@@ -187,7 +187,7 @@ body {
     font-size: 15px;
 }
 
-.butenviar:hover {
+.botao-enviar:hover {
     background-color: #5f819c;
 }
 

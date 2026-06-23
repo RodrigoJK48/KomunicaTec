@@ -144,11 +144,11 @@ main {
 }
 
 
-.form-section {
+.secao-formulario {
   flex: 1;
 }
 
-.form-section h2 {
+.secao-formulario h2 {
   font-size: 22px;
   margin-bottom: 20px;
   font-weight: 600;
@@ -175,22 +175,22 @@ textarea {
   resize: vertical;
 }
 
-.form-row {
+.linha-formulario {
   display: flex;
   gap: 20px;
 }
 
-.form-group {
+.grupo-formulario {
   flex: 1;
 }
 
-.upload-area {
+.area-upload {
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
 }
 
-.upload-box {
+.caixa-upload {
   flex: 1;
   border: 2px dashed #ccc;
   border-radius: 10px;
@@ -204,7 +204,7 @@ textarea {
   transition: border 0.3s ease, color 0.3s ease;
 }
 
-.upload-box:hover {
+.caixa-upload:hover {
   border-color: #1FA96B;
   color: #1FA96B;
 }
@@ -216,7 +216,7 @@ textarea {
   justify-content: flex-end;
 }
 
-.btn-cancel {
+.botao-cancelar {
   padding: 10px 25px;
   border: 1px solid #1A2A40;
   background: #fff;
@@ -227,11 +227,11 @@ textarea {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-.btn-cancel:hover {
+.botao-cancelar:hover {
   background: #f1f1f1;
 }
 
-.btn-save {
+.botao-salvar {
   padding: 10px 25px;
   border: none;
   background: #1A2A40;
@@ -242,6 +242,6 @@ textarea {
   transition: background 0.3s ease;
 }
 
-.btn-save:hover {
+.botao-salvar:hover {
   background: #16325C;
 }

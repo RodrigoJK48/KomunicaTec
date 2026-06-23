@@ -16,7 +16,7 @@
             </figure>
             <div class="botao-navegacao">
                 <button class="botao" onclick="location.href='index.html'">Home</button>
-                <button class="botaoent" onclick="location.href='login.html'">Entrar</button>
+                <button class="botao-entrar" onclick="location.href='login.html'">Entrar</button>
                 <button class="botao-especial" onclick="location.href='register.html'">Cadastrar</button>
             </div>
         </nav>
@@ -39,7 +39,7 @@
 
 
 
-    <section class="form-section">
+    <section class="secao-formulario">
       <h2>Atualizar Publicação</h2>
 
       <form method="post" action="../controller/controlar_publicacao.php?acao=publicar">
@@ -49,12 +49,12 @@
         <label for="descricao">Descrição:</label>
         <textarea id="descricao" name="descricao" rows="4" placeholder="Digite a descrição" required></textarea>
 
-        <div class="form-row">
-          <div class="form-group">
+        <div class="linha-formulario">
+          <div class="grupo-formulario">
             <label for="expiracao">Expiração:</label>
             <input type="date" id="expiracao" name="expiracao">
           </div>
-          <div class="form-group">
+          <div class="grupo-formulario">
             <label for="categoria">Categoria:</label>
             <select id="categoria" name="categoria">
               <option value="">Selecione</option>
@@ -67,17 +67,17 @@
         </div>
 
         <label>Imagens:</label>
-        <div class="upload-area">
-          <div class="upload-box">Selecione imagem</div>
-          <div class="upload-box">Selecione imagem</div>
+        <div class="area-upload">
+          <div class="caixa-upload">Selecione imagem</div>
+          <div class="caixa-upload">Selecione imagem</div>
         </div>
 
         <label for="link">Link de redirecionamento:</label>
         <input type="url" id="link" name="link" placeholder="https://">
 
         <div class="buttons">
-          <button type="button" class="btn-cancel">Voltar</button>
-          <button class="btn-save" type="submit">Salvar</button>
+          <button type="button" class="botao-cancelar">Voltar</button>
+          <button class="botao-salvar" type="submit">Salvar</button>
         </div>
       </form>
     </section>

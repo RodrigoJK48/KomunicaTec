@@ -19,7 +19,7 @@
     text-decoration: underline
 }
 
-.botaoent {
+.botao-entrar {
     background: none;
     font-size: 15px;
     background-color: #1F496B;
@@ -37,7 +37,7 @@
     justify-content: space-between;
 }
 
-.botaoent:hover {
+.botao-entrar:hover {
     background-color: #5f819c;
 }
 
@@ -73,7 +73,7 @@ main {
     text-align: center;
 }
 
-.imgf {
+.imagem-fundo {
     background-image: url(imagens/Fatec.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -96,7 +96,7 @@ main {
     padding: 50px 50px;
 }
 
-.textmain {
+.texto-principal {
     font-size: 60px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
@@ -104,7 +104,7 @@ main {
     padding-bottom: 30px;
 }
 
-.textimg {
+.texto-imagem {
     font-size: 25px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
@@ -112,7 +112,7 @@ main {
     padding-bottom: 40px;
 }
 
-.botvisu {
+.botao-visualizar {
     border: 2px solid #1F496B;
     border-radius: 5px;
     background-color: white;
@@ -123,7 +123,7 @@ main {
     cursor: pointer;
 }
 
-.botvisu:hover {
+.botao-visualizar:hover {
     background-color: #5f819c;
     color: #ffffff;
 }
@@ -137,7 +137,7 @@ main {
     justify-content: center;
 }
 
-.campo-bg-login {
+.fundo-login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,12 +145,12 @@ main {
     height: 300px;
 }
 
-.imagem-div1 {
+.divisao-imagem {
     width: 500px;
     height: 250px;
 }
 
-.caixa-login article {
+.caixa-acesso article {
     display: flex;
     text-align: justify;
     justify-content: center;
@@ -189,7 +189,7 @@ main {
     padding-left: 100px;
 }
 
-.disp {
+.exibir-central {
     display: flex;
     justify-content: center;
 }
@@ -204,12 +204,12 @@ footer {
     bottom: 0;
 }
 
-.rodapelogin {
+.rodape-acesso {
     width: 20%;
 }
 
 /* Ícone hamburguer escondido por padrão (desktop) */
-.menu-toggle {
+.alternar-menu {
     display: none;
 }
 
@@ -233,7 +233,7 @@ footer {
     }
 
     /* Menu hamburguer (ícone de 3 linhas) */
-    .menu-toggle {
+    .alternar-menu {
         display: block;
         font-size: 28px;
         cursor: pointer;
@@ -241,7 +241,7 @@ footer {
     }
 
     /* Hero section */
-    .imgf {
+    .imagem-fundo {
         height: auto;
         min-height: 300px;
         text-align: center;
@@ -254,19 +254,19 @@ footer {
         padding: 20px;
     }
 
-    .textmain {
+    .texto-principal {
         font-size: 24px;
         text-align: center;
         padding-bottom: 10px;
     }
 
-    .textimg {
+    .texto-imagem {
         font-size: 16px;
         text-align: center;
         padding-bottom: 20px;
     }
 
-    .botvisu {
+    .botao-visualizar {
         width: auto;
         padding: 10px 15px;
         height: auto;
@@ -281,13 +281,13 @@ footer {
         justify-content: center;
     }
 
-    .campo-bg-login {
+    .fundo-login {
         flex-direction: column;
         height: auto;
         padding: 20px;
     }
 
-    .caixa-login article {
+    .caixa-acesso article {
         flex-direction: column-reverse;
         text-align: center;
         margin-top: 0;
@@ -300,7 +300,7 @@ footer {
         text-align: left;
     }
 
-    .imagem-div1 {
+    .divisao-imagem {
         width: 90%;
         max-width: 300px;
         height: auto;
@@ -313,7 +313,7 @@ footer {
         padding: 20px 0;
     }
 
-    .rodapelogin {
+    .rodape-acesso {
         width: 50%;
     }
 }

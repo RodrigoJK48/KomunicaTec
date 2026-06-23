@@ -25,7 +25,7 @@ $categorias = $categoria->consultar(); // Executa função de consulta, recebe d
 		include_once 'card_perfil.php'; // Inclui o código arquivo uma vez, evitando repetição ao recarregar a página
 		?>
 
-		<section class="form-section">
+		<section class="secao-formulario">
 			<h2>Atualizar Publicação</h2>
 
 			<?php echo '<form method="post" action="../controller/controlar_publicacao.php?acao=';
@@ -57,8 +57,8 @@ $categorias = $categoria->consultar(); // Executa função de consulta, recebe d
 				echo '</textarea>';
 				?>
 
-				<div class="form-row">
-					<div class="form-group">
+				<div class="linha-formulario">
+					<div class="grupo-formulario">
 						<label for="expiracao">Expiração:</label>
 						<?php echo '<input type="date" id="expiracao" name="expiracao"';
 						if (isset($data_expiracao))
@@ -68,7 +68,7 @@ $categorias = $categoria->consultar(); // Executa função de consulta, recebe d
 						echo '>';
 						?>
 					</div>
-					<div class="form-group">
+					<div class="grupo-formulario">
 						<label for="categoria">Categoria:</label>
 						<select id="categoria" name="categoria" required>
 							<option value="">Selecione</option>
@@ -88,9 +88,9 @@ $categorias = $categoria->consultar(); // Executa função de consulta, recebe d
 				</div>
 
 				<label>Imagens:</label>
-				<div class="upload-area">
-					<div class="upload-box">Selecione imagem</div>
-					<div class="upload-box">Selecione imagem</div>
+				<div class="area-upload">
+					<div class="caixa-upload">Selecione imagem</div>
+					<div class="caixa-upload">Selecione imagem</div>
 				</div>
 
 				<label for="link">Link de redirecionamento:</label>
@@ -118,7 +118,7 @@ $categorias = $categoria->consultar(); // Executa função de consulta, recebe d
 
 				<div class="buttons">
 					<?php
-					echo '<button type="button" class="btn-cancel" onclick="location.href=`publicacao_usuario.php';
+					echo '<button type="button" class="botao-cancelar" onclick="location.href=`publicacao_usuario.php';
 					if (isset($id_cpf_fk)) { echo '?comunicador='.$id_cpf_fk; }
 					else
 					{
@@ -127,8 +127,8 @@ $categorias = $categoria->consultar(); // Executa função de consulta, recebe d
 					}
 					echo '`">Voltar</button>';
 					?>
-					<!--button type="button" class="btn-cancel" onclick="location.href='publicacao_usuario.php'">Voltar</button-->
-					<button class="btn-save" type="submit">Salvar</button>
+					<!--button type="button" class="botao-cancelar" onclick="location.href='publicacao_usuario.php'">Voltar</button-->
+					<button class="botao-salvar" type="submit">Salvar</button>
 				</div>
 			</form>
 		</section>

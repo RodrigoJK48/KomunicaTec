@@ -22,28 +22,28 @@
 
 	<!-- Conteúdo principal com destaque -->
 	<main>
-		<section class="imgf">
+		<section class="imagem-fundo">
 			<div class="overlay">
 				<article class="main">
-					<h1 class="textmain">|Bem vindo(a) a KomunicaTec!</h1>
-					<p class="textimg">A plataforma de comunicação da Fatec Franco da Rocha.</p>
-					<button class="botvisu" onclick="location.href='publicacao_usuario.php'">visualizar novidades</button>
+					<h1 class="texto-principal">|Bem vindo(a) a KomunicaTec!</h1>
+					<p class="texto-imagem">A plataforma de comunicação da Fatec Franco da Rocha.</p>
+					<button class="botao-visualizar" onclick="location.href='publicacao_usuario.php'">visualizar novidades</button>
 				</article>
 			</div>
 		</section>
 	</main>
 
 	<!-- Seção sobre a plataforma -->
-	<h2 class="titulo-login disp">|Sobre a plataforma</h2>
+	<h2 class="titulo-login exibir-central">|Sobre a plataforma</h2>
 
-	<section class="campo-bg-login">
-		<div class="caixa-login">
+	<section class="fundo-login">
+		<div class="caixa-acesso">
 			<article>
 				<figure>
-					<img class="imagem-div1" src="imagens/imgin.png" alt="Ilustração sobre comunicação acadêmica">
+					<img class="divisao-imagem" src="imagens/imgin.png" alt="Ilustração sobre comunicação acadêmica">
 				</figure>
 				<aside class="login-size">
-					<p class="span-login disp">
+					<p class="span-login exibir-central">
 						A KomunicaTec é uma plataforma para apoio à comunicação e integração da comunidade acadêmica da Fatec
 						Franco da Rocha.<br>
 						Fique por dentro de vagas publicadas, cursos e até mesmo convites para eventos.<br><br><br>
@@ -55,7 +55,7 @@
 	</section>
 	<!-- Rodapé -->
 	<footer class="text-center py-3">
-		<img class="rodapelogin" src="imagens/logo2.png" alt="Logo secundária da KomunikaTec">
+		<img class="rodape-acesso" src="imagens/logo2.png" alt="Logo secundária da KomunikaTec">
 	</footer>
 </body>
 

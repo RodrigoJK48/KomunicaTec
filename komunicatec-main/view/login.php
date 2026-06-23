@@ -22,17 +22,17 @@
 	?>
 
 	<main>
-		<section class="campo-bg-login">
-			<div class="caixa-login">
+		<section class="fundo-login">
+			<div class="caixa-acesso">
 				<article>
 					<figure>
-						<img class="imagem-div1" src="imagens/foto do login-cortada.png"
+						<img class="divisao-imagem" src="imagens/foto do login-cortada.png"
 							alt="Imagem decorativa de login">
 					</figure>
 					<section class="login-size">
-						<h2 class="titulo-login disp">Entrar</h2>
+						<h2 class="titulo-login exibir-central">Entrar</h2>
 						<!-- Links para alternar entre tipo de usuário -->
-						<p class="span-login disp">
+						<p class="span-login exibir-central">
 							<a href="#" id="adminLink" class="active">admin ou comunicador </a> &ensp;|&ensp;
 							<a href="#" id="alunoLink" class="inactive"> aluno ou ex-aluno</a>
 						</p>
@@ -40,12 +40,12 @@
 						<form action="../controller/controlar_usuario.php?acao=entrar" method="post">
 							<div id="formFields">
 
-								<label for="email" class="visually-hidden">Email ou CPF</label>
-								<input id="email" name="email" class="inputs-login disp" type="text" placeholder="email ou CPF"
+								<label for="email" class="oculto-visual">Email ou CPF</label>
+								<input id="email" name="email" class="inputs-login exibir-central" type="text" placeholder="email ou CPF"
 									required><br>
 
-								<label for="senha" class="visually-hidden">Senha</label>
-								<input id="senha" name="senha" class="inputs-login disp" type="password" placeholder="senha"
+								<label for="senha" class="oculto-visual">Senha</label>
+								<input id="senha" name="senha" class="inputs-login exibir-central" type="password" placeholder="senha"
 									required><br>
 								<input id="perfil" name="perfil" type="hidden" value="comunicador">
 							</div>
@@ -54,7 +54,7 @@
 								Não tem conta? <a href="register.html">Cadastre-se</a>
 							</p>
 
-							<button class="butenviar" type="submit">
+							<button class="botao-enviar" type="submit">
 								Entrar
 							</button>
 							<br><br>
@@ -91,10 +91,10 @@
 		adminLink.addEventListener("click", (e) => {
 			e.preventDefault();
 			formFields.innerHTML = `
-		<label for="email" class="visually-hidden">Email ou CPF</label>
-		<input id="email" name="email" class="inputs-login disp" type="text" placeholder="email ou CPF"><br>
-		<label for="senha" class="visually-hidden">Senha</label>
-		<input id="senha" name="senha" class="inputs-login disp" type="password" placeholder="senha"><br>
+		<label for="email" class="oculto-visual">Email ou CPF</label>
+		<input id="email" name="email" class="inputs-login exibir-central" type="text" placeholder="email ou CPF"><br>
+		<label for="senha" class="oculto-visual">Senha</label>
+		<input id="senha" name="senha" class="inputs-login exibir-central" type="password" placeholder="senha"><br>
 		<input id="perfil" name="perfil" type="hidden" value="comunicador">
 	`;
 			adminLink.classList.add("active");
@@ -106,10 +106,10 @@
 		alunoLink.addEventListener("click", (e) => {
 			e.preventDefault();
 			formFields.innerHTML = `
-		<label for="ra" class="visually-hidden">RA</label>
-		<input id="ra" name="ra" class="inputs-login disp" type="text" placeholder="RA (registro acadêmico)"><br>
-		<label for="senhaAluno" class="visually-hidden">Senha</label>
-		<input id="senhaAluno" name="senhaAluno" class="inputs-login disp" type="password" placeholder="senha"><br>
+		<label for="ra" class="oculto-visual">RA</label>
+		<input id="ra" name="ra" class="inputs-login exibir-central" type="text" placeholder="RA (registro acadêmico)"><br>
+		<label for="senhaAluno" class="oculto-visual">Senha</label>
+		<input id="senhaAluno" name="senhaAluno" class="inputs-login exibir-central" type="password" placeholder="senha"><br>
 		<input id="perfil" name="perfil" type="hidden" value="discente_egresso">
 	`;
 			alunoLink.classList.add("active");

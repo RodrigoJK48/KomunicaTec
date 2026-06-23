@@ -20,7 +20,7 @@
     text-decoration: underline
 }
 
-.botaoent {
+.botao-entrar {
     background: none;
     font-size: 15px;
     background-color: #1F496B;
@@ -38,7 +38,7 @@
     justify-content: space-between;
 }
 
-.botaoent:hover {
+.botao-entrar:hover {
     background-color: #5f819c;
 
 }
@@ -75,7 +75,7 @@ main {
 
 }
 
-.imgf {
+.imagem-fundo {
     background-image: url(imagens/Fatec.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -102,7 +102,7 @@ main {
 }
 
 
-.botvisu {
+.botao-visualizar {
     border: 2px solid #1F496B;
     border-radius: 5px;
     background-color: white;
@@ -115,14 +115,14 @@ main {
 
 }
 
-.botvisu:hover {
+.botao-visualizar:hover {
     background-color: #5f819c;
     color: #ffffff;
 }
 
 
 
-.campo-bg-login {
+.fundo-login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,11 +130,11 @@ main {
     font-family: 'Poppins', sans-serif;
 }
 
-.imagem-div1 {
+.divisao-imagem {
     width: 450px;
 }
 
-.caixa-login article {
+.caixa-acesso article {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -217,7 +217,7 @@ main {
     text-decoration: underline;
 }
 
-.butenviar {
+.botao-enviar {
     background-color: #1F496B;
     color: #fff;
     border: none;
@@ -229,11 +229,11 @@ main {
     font-weight: 500;
 }
 
-.butenviar:hover {
+.botao-enviar:hover {
     background-color: #5f819c;
 }
 
-.visually-hidden {
+.oculto-visual {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -245,7 +245,7 @@ main {
 }
 
 
-.disp {
+.exibir-central {
     display: flex;
     justify-content: center;
 }

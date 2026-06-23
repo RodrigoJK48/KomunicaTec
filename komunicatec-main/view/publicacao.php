@@ -28,7 +28,7 @@ $categorias = $categoria->consultar();
 
 	<main>
 		<!-- Barra de pesquisa -->
-		<div class="search-bar">
+		<div class="barra-pesquisa">
 			<input type="text" placeholder="pesquisar">
 			<button>
 				<i class="fa-solid fa-magnifying-glass"></i>
@@ -59,18 +59,18 @@ $categorias = $categoria->consultar();
 					"'class='card oculto'
 					categoria='".htmlspecialchars($publicado["nome_categoria"] ?? "Outro").
 					"'>" ?>
-					<div class="card-header">
-						<img src="imagens/user_icon.jpg" alt="Foto perfil" class="card-profile">
+					<div class="cabecalho-cartao">
+						<img src="imagens/user_icon.jpg" alt="Foto perfil" class="foto-cartao">
 						<div>
 							<h4><?= $publicado["nome"].' '.$publicado["sobrenome"] ?></h4>
 							<p class="role"><?= ucfirst($publicado["cargo"]) ?></p>
 						</div>
-						<?="<button class='btn-view'
+						<?="<button class='botao-ver'
 							onclick='location.href=\"publicacao_usuario.php?comunicador=".$publicado['id_cpf_fk']."\"'>
 							Visualizar Perfil</button>"?>
 					</div>
 
-					<div class="card-content">
+					<div class="conteudo-cartao">
 						<u><?= $publicado["nome_categoria"] ?></u>
 						<h3><?= $publicado["titulo"] ?></h3>
 						<span class="date">Publicado em <?= date("d/m/Y H:i", strtotime($publicado["data_publicacao"])) // Formato da data, converte valor string para tempo ?></span>
@@ -95,16 +95,16 @@ $categorias = $categoria->consultar();
 
             <!-- Publicações base -->
 			<!--div class="card">
-				<div class="card-header">
-					<img src="perfil.jpg" alt="Foto perfil" class="card-profile">
+				<div class="cabecalho-cartao">
+					<img src="perfil.jpg" alt="Foto perfil" class="foto-cartao">
 					<div>
 						<h4>Silvia Farani</h4>
 						<p class="role">Coordenadora</p>
 					</div>
-					<button class="btn-view">Visualizar Perfil</button>
+					<button class="botao-ver">Visualizar Perfil</button>
 				</div>
 
-				<div class="card-content">
+				<div class="conteudo-cartao">
 					<h3>Convite ao Simbaju DSM!</h3>
 					<span class="date">Publicado em 08/11/2024</span>
 					<p>Boa tarde a todos! Nos dias 12, 13 e 14, ocorrerão as apresentações do Simbaju do DSM. Estudantes do G1T e
@@ -117,16 +117,16 @@ $categorias = $categoria->consultar();
 			</div>
 
 			<div class="card">
-				<div class="card-header">
-					<img src="perfil.jpg" alt="Foto perfil" class="card-profile">
+				<div class="cabecalho-cartao">
+					<img src="perfil.jpg" alt="Foto perfil" class="foto-cartao">
 					<div>
 						<h4>Silvia Farani</h4>
 						<p class="role">Coordenadora</p>
 					</div>
-					<button class="btn-view">Visualizar Perfil</button>
+					<button class="botao-ver">Visualizar Perfil</button>
 				</div>
 
-				<div class="card-content">
+				<div class="conteudo-cartao">
 					<h3>Estágio em Análise de Dados</h3>
 					<span class="date">Publicado em 10/11/2024</span>
 					<p>Bom dia a todos! Um ex-aluno me posicionou sobre uma vaga de estágio em aberto para a empresa XPTO.
