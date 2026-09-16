@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Painel do Administrador - KomunicaTec</title>
+	<!-- Fontes Google (padrão do projeto KomunicaTec) -->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+	<!-- Ícones (font-awesome) -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<style>
+		/* ============ RESET BÁSICO ============ */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Poppins', 'Inter', sans-serif;
+			background-color: #f4f6f9;
+			color: #1a1a1a;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		/* ============ NAVBAR (estilo do cabecario.php) ============ */
+		.nav-bar {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			padding: 20px 30px;
+			background-color: #ffffff;
+			border-bottom: 1px solid #e4e7eb;
+		}
+
+		.logo-adm {
+			font-size: 24px;
+			font-weight: 700;
+			color: #1F496B;
+			letter-spacing: 0.5px;
+		}
+
+		.botao-navegacao {
+			display: flex;
+			gap: 15px;
+			align-items: center;
+		}
+
+		.botao {
+			background: none;
+			border: none;
+			font-size: 15px;
+			color: #000000;
+			padding: 12px;
+			cursor: pointer;
+			font-family: 'Inter', sans-serif;
+		}
+
+		.botao:hover {
+			text-decoration: underline;
+		}
+
+		.botao-entrar {
+			background-color: #1F496B;
+			color: #ffffff;
+			border-radius: 5px;
+			border: none;
+			width: 150px;
+			height: 45px;
+			cursor: pointer;
+			font-family: 'Inter', sans-serif;
+		}
+
+		.botao-entrar:hover {
+			background-color: #5f819c;
+		}
+
+		/* ============ LAYOUT PRINCIPAL ============ */
+		main {
+			flex: 1;
+			width: 100%;
+			max-width: 1280px;
+			margin: 0 auto;
+			padding: 30px 24px;
+		}
+
+		/* Banner do painel */
+		.banner-painel {
+			background-color: #1F496B;
+			color: #ffffff;
+			border-radius: 8px;
+			padding: 30px 36px;
+			margin-bottom: 28px;
+		}
+
+		.banner-painel h1 {
+			font-size: 28px;
+			font-weight: 700;
+			border-left: 4px solid #ffffff;
+			padding-left: 14px;
+		}
+
+		.banner-painel p {
+			margin-top: 10px;
+			padding-left: 18px;
+			font-size: 14px;
+			opacity: 0.9;
+			font-family: 'Inter', sans-serif;
+		}
+
+		/* Cards de métricas */
+		.grade-metricas {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 20px;
+			margin-bottom: 28px;
+		}
+
+		.cartao-metrica {
+			background-color: #ffffff;
+			border: 1px solid #e4e7eb;
+			border-radius: 8px;
+			padding: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.cartao-metrica .rotulo {
+			font-size: 14px;
+			color: #6b7280;
+			font-family: 'Inter', sans-serif;
+		}
+
+		.cartao-metrica .valor {
+			margin-top: 8px;
+			font-size: 32px;
+			font-weight: 700;
+			color: #1F496B;
+		}
+
+		.cartao-metrica i {
+			font-size: 26px;
+			color: #1F496B;
+		}
+/* Cartões de seção */
+		.grade-conteudo {
+			display: grid;
+			grid-template-columns: 1.2fr 1fr;
+			gap: 24px;
+			margin-bottom: 28px;
+		}
+
+		.secao-cartao {
+			background-color: #ffffff;
+			border: 1px solid #e4e7eb;
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		.cabecalho-cartao-secao {
+			border-bottom: 1px solid #e4e7eb;
+			padding: 16px 20px;
+		}
+
+		.cabecalho-cartao-secao h2 {
+			font-size: 18px;
+			font-weight: 600;
+			color: #1a1a1a;
+		}
+
+		.cabecalho-cartao-secao p {
+			font-size: 13px;
+			color: #6b7280;
+			font-family: 'Inter', sans-serif;
+		}
+
+		/* Itens de lista de usuários */
+		.lista-usuarios {
+			list-style: none;
+		}
+
+		.item-usuario {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 14px;
+			padding: 16px 20px;
+			border-bottom: 1px solid #eef0f3;
+		}
+
+		.item-usuario:last-child {
+			border-bottom: none;
+		}
+
+		.avatar {
+			width: 42px;
+			height: 42px;
+			border-radius: 50%;
+			background-color: #eaf0f6;
+			color: #1F496B;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 600;
+			font-size: 14px;
+			flex-shrink: 0;
+		}
+
+		.avatar-ativo {
+			background-color: #1F496B;
+			color: #ffffff;
+		}
+
+		.dados-usuario {
+			flex: 1;
+			min-width: 180px;
+		}
+
+		.dados-usuario .nome {
+			font-weight: 500;
+			color: #1a1a1a;
+		}
+
+		.dados-usuario .email,
+		.dados-usuario .detalhe {
+			font-size: 12px;
+			color: #6b7280;
+			font-family: 'Inter', sans-serif;
+		}
+
+		/* Botões de ação */
+		.grupo-acoes {
+			display: flex;
+			gap: 8px;
+		}
+
+		.botao-aceitar,
+		.botao-recusar {
+			border: none;
+			border-radius: 5px;
+			padding: 8px 14px;
+			font-size: 13px;
+			cursor: pointer;
+			font-family: 'Inter', sans-serif;
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+		}
+
+		.botao-aceitar {
+			background-color: #1F496B;
+			color: #ffffff;
+		}
+
+		.botao-aceitar:hover {
+			background-color: #5f819c;
+		}
+
+		.botao-recusar {
+			background-color: #fdecec;
+			color: #b91c1c;
+		}
+
+		.botao-recusar:hover {
+			background-color: #f8d7d7;
+		}
+
+		.vazio {
+			padding: 30px 20px;
+			text-align: center;
+			color: #6b7280;
+			font-size: 14px;
+			font-family: 'Inter', sans-serif;
+		}
+
+		/* Badge de status */
+		.badge-status {
+			display: inline-block;
+			padding: 4px 10px;
+			border-radius: 999px;
+			font-size: 12px;
+			font-weight: 500;
+			font-family: 'Inter', sans-serif;
+		}
+
+		.badge-ativo {
+			background-color: #e6f7ee;
+			color: #1e7a46;
+		}
+
+		.badge-inativo {
+			background-color: #eef0f3;
+			color: #6b7280;
+		}
+/* ============ BUSCA DE USUÁRIOS ============ */
+		.busca-usuarios {
+			background-color: #ffffff;
+			border: 1px solid #e4e7eb;
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		.busca-topo {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+			gap: 16px;
+			border-bottom: 1px solid #e4e7eb;
+			padding: 16px 20px;
+		}
+
+		.campo-busca {
+			position: relative;
+			max-width: 320px;
+			width: 100%;
+		}
+
+		.campo-busca i {
+			position: absolute;
+			left: 12px;
+			top: 50%;
+			transform: translateY(-50%);
+			color: #6b7280;
+			font-size: 14px;
+		}
+
+		.campo-busca input {
+			width: 100%;
+			padding: 10px 12px 10px 34px;
+			border: 1px solid #d1d5db;
+			border-radius: 5px;
+			font-family: 'Inter', sans-serif;
+			font-size: 14px;
+			outline: none;
+		}
+
+		.campo-busca input:focus {
+			border-color: #1F496B;
+		}
+
+		.filtros-tipo {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			border-bottom: 1px solid #e4e7eb;
+			padding: 14px 20px;
+		}
+
+		.filtro-botao {
+			border: 1px solid #d1d5db;
+			background-color: #ffffff;
+			color: #6b7280;
+			border-radius: 999px;
+			padding: 6px 14px;
+			font-size: 12px;
+			font-weight: 500;
+			cursor: pointer;
+			font-family: 'Inter', sans-serif;
+		}
+
+		.filtro-botao.ativo {
+			background-color: #1F496B;
+			border-color: #1F496B;
+			color: #ffffff;
+		}
+
+		.filtro-somente-ativos {
+			margin-left: auto;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			font-size: 13px;
+			color: #4b5563;
+			font-family: 'Inter', sans-serif;
+			cursor: pointer;
+		}
+
+		.filtro-somente-ativos input {
+			accent-color: #1F496B;
+			width: 15px;
+			height: 15px;
+			cursor: pointer;
+		}
+
+		.tabela-usuarios {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		.tabela-usuarios thead {
+			background-color: #eef0f3;
+			color: #4b5563;
+		}
+
+		.tabela-usuarios th {
+			text-align: left;
+			padding: 12px 20px;
+			font-size: 13px;
+			font-weight: 500;
+			font-family: 'Inter', sans-serif;
+		}
+
+		.tabela-usuarios td {
+			padding: 12px 20px;
+			font-size: 14px;
+			border-top: 1px solid #eef0f3;
+			font-family: 'Inter', sans-serif;
+			color: #374151;
+			vertical-align: middle;
+		}
+
+		.tabela-usuarios .celula-nome {
+			font-weight: 500;
+			color: #1a1a1a;
+		}
+
+		.tabela-usuarios .celula-email {
+			font-size: 12px;
+			color: #6b7280;
+		}
+
+		/* Overlay de notificação (toast simples) */
+		.toast {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			background-color: #1F496B;
+			color: #ffffff;
+			padding: 14px 20px;
+			border-radius: 6px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+			font-family: 'Inter', sans-serif;
+			font-size: 14px;
+			opacity: 0;
+			transform: translateY(-10px);
+			pointer-events: none;
+			transition: all 0.3s ease;
+			z-index: 999;
+		}
+
+		.toast.visivel {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		/* ============ RODAPÉ (estilo footer.css) ============ */
+		footer {
+			background-color: #1F496B;
+			color: #ffffff;
+			text-align: center;
+			padding: 18px 0;
+			margin-top: auto;
+			font-family: 'Inter', sans-serif;
+			font-size: 14px;
+		}
+
+		/* ============ RESPONSIVIDADE (MOBILE) ============ */
+		@media (max-width: 768px) {
+			.nav-bar {
+				justify-content: space-between;
+				padding: 15px 20px;
+			}
+
+			.botao-navegacao {
+				display: none;
+			}
+
+			.grade-metricas {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.grade-conteudo {
+				grid-template-columns: 1fr;
+			}
+
+			.banner-painel h1 {
+				font-size: 22px;
+			}
+
+			.filtro-somente-ativos {
+				margin-left: 0;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.grade-metricas {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Cabeçalho e navegação (baseado no cabecario.php) -->
+	<header class="nav-bar">
+		<span class="logo-adm">Komunica<span style="color:#111">Tec</span></span>
+		<div class="botao-navegacao">
+			<button class="botao" onclick="location.href='index.php'">Home</button>
+			<button class="botao" onclick="location.href='publicacao.php'">Publicações</button>
+			<button class="botao-entrar" onclick="location.href='login.php'">Entrar</button>
+		</div>
+	</header>
+
+	<main>
+		<!-- Banner do painel -->
+		<section class="banner-painel">
+			<h1>Painel do Administrador</h1>
+			<p>Acompanhe a comunidade acadêmica da Fatec Franco da Rocha e gerencie o acesso à plataforma.</p>
+		</section>
+
+		<!-- Cards de métricas -->
+		<section class="grade-metricas">
+			<div class="cartao-metrica">
+				<div>
+					<div class="rotulo" id="rotuloAlunos">Alunos ativos</div>
+					<div class="valor" id="valorAlunos">0</div>
+				</div>
+				<i class="fa-solid fa-user-graduate"></i>
+			</div>
+			<div class="cartao-metrica">
+				<div>
+					<div class="rotulo">Egressos ativos</div>
+					<div class="valor" id="valorEgressos">0</div>
+				</div>
+				<i class="fa-solid fa-graduation-cap"></i>
+			</div>
+			<div class="cartao-metrica">
+				<div>
+					<div class="rotulo">Comunicadores ativos</div>
+					<div class="valor" id="valorComunicadores">0</div>
+				</div>
+				<i class="fa-solid fa-bullhorn"></i>
+			</div>
+			<div class="cartao-metrica">
+				<div>
+					<div class="rotulo">Aguardando análise</div>
+					<div class="valor" id="valorPendentes">0</div>
+				</div>
+				<i class="fa-solid fa-clock"></i>
+			</div>
+		</section>
+
+		<!-- Grade de conteúdo: análise + comunicadores -->
+		<section class="grade-conteudo">
+			<div class="secao-cartao">
+				<div class="cabecalho-cartao-secao">
+					<h2>Usuários para análise</h2>
+					<p>Solicitações de acesso aguardando aceite ou recusa.</p>
+				</div>
+				<ul class="lista-usuarios" id="listaPendentes">
+					<!-- Alimentado via JS -->
+				</ul>
+			</div>
+
+			<div class="secao-cartao">
+				<div class="cabecalho-cartao-secao">
+					<h2>Comunicadores ativos</h2>
+					<p>Responsáveis pelas publicações institucionais.</p>
+				</div>
+				<ul class="lista-usuarios" id="listaComunicadores">
+					<!-- Alimentado via JS -->
+				</ul>
+			</div>
+		</section>
+
+		<!-- Busca de usuários -->
+		<section class="busca-usuarios">
+			<header class="busca-topo">
+				<div>
+					<h2 style="font-size:18px; font-weight:600;">Busca de usuários</h2>
+					<p style="font-size:13px; color:#6b7280; font-family:'Inter',sans-serif;">Filtre por perfil e situação na plataforma.</p>
+				</div>
+				<div class="campo-busca">
+					<i class="fa-solid fa-magnifying-glass"></i>
+					<input type="text" id="inputBusca" placeholder="pesquisar por nome ou e-mail">
+				</div>
+			</header>
+
+			<div class="filtros-tipo" id="filtrosTipo">
+				<!-- Botões de filtro gerados via JS -->
+				<label class="filtro-somente-ativos">
+					<input type="checkbox" id="somenteAtivos">
+					Somente ativos
+				</label>
+			</div>
+
+			<div style="overflow-x:auto;">
+				<table class="tabela-usuarios">
+					<thead>
+						<tr>
+							<th>Usuário</th>
+							<th>Perfil</th>
+							<th>Curso</th>
+							<th>Status</th>
+							<th>Último acesso</th>
+						</tr>
+					</thead>
+					<tbody id="corpoTabela">
+						<!-- Alimentado via JS -->
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</main>
+
+	<!-- Rodapé -->
+	<footer>
+		<p>© 2025 - KomunicaTec</p>
+	</footer>
+
+	<div class="toast" id="toast"></div>
+
+	<script>
+		// ============ INFORMAÇÕES PARA GERENCIAR (dados mockados) ============
+		// Nesta versão standalone os dados são fixos. Na integração futura com o
+		// backend, estes valores podem ser fornecidos pela View PHP (ex.: vindo do
+		// model/controller) no lugar deste array.
+		var FILTROS = ["Todos", "Aluno", "Egresso", "Comunicador", "Administrador"];
+
+		var USUARIOS = [
+			{ id: 1, nome: "Elvidio Ferrari", email: "elvidio@fatec.sp.gov.br", papel: "Comunicador", curso: "DSM", status: "Ativo", ultimoAcesso: "Hoje" },
+			{ id: 2, nome: "Mariana Lopes", email: "mariana.lopes@fatec.sp.gov.br", papel: "Aluno", curso: "DSM", status: "Ativo", ultimoAcesso: "Hoje" },
+			{ id: 3, nome: "Rafael Nunes", email: "rafael.nunes@fatec.sp.gov.br", papel: "Egresso", curso: "Gestão Empresarial", status: "Ativo", ultimoAcesso: "Ontem" },
+			{ id: 4, nome: "Juliana Prado", email: "juliana.prado@fatec.sp.gov.br", papel: "Aluno", curso: "Logística", status: "Inativo", ultimoAcesso: "12/07" },
+			{ id: 5, nome: "Carlos Menezes", email: "carlos.menezes@fatec.sp.gov.br", papel: "Comunicador", curso: "Coordenação", status: "Ativo", ultimoAcesso: "Hoje" },
+			{ id: 6, nome: "Beatriz Almeida", email: "beatriz.almeida@fatec.sp.gov.br", papel: "Egresso", curso: "DSM", status: "Ativo", ultimoAcesso: "03/08" },
+			{ id: 7, nome: "Tiago Ribeiro", email: "tiago.ribeiro@fatec.sp.gov.br", papel: "Aluno", curso: "Gestão Empresarial", status: "Ativo", ultimoAcesso: "Ontem" }
+		];
+
+		var SOLICITACOES = [
+			{ id: 101, nome: "Fernanda Duarte", email: "fernanda.duarte@fatec.sp.gov.br", papel: "Aluno", curso: "DSM", enviadoEm: "há 2 horas" },
+			{ id: 102, nome: "Pedro Henrique Souza", email: "pedro.souza@fatec.sp.gov.br", papel: "Egresso", curso: "Logística", enviadoEm: "há 5 horas" },
+			{ id: 103, nome: "Aline Castro", email: "aline.castro@fatec.sp.gov.br", papel: "Comunicador", curso: "Coordenação", enviadoEm: "ontem" }
+		];
+
+		// Estado da busca
+		var estadoBusca = {
+			termo: "",
+			tipo: "Todos",
+			somenteAtivos: false
+		};
+
+		// ============ FUNÇÕES AUXILIARES ============
+		function iniciais(nome) {
+			var partes = nome.trim().split(" ");
+			return partes[0][0] + (partes[1] ? partes[1][0] : "");
+		}
+
+		function escaparTexto(valor) {
+			var div = document.createElement("div");
+			div.textContent = valor;
+			return div.innerHTML;
+		}
+
+		function mostrarToast(mensagem) {
+			var toast = document.getElementById("toast");
+			toast.textContent = mensagem;
+			toast.classList.add("visivel");
+			clearTimeout(toast._timer);
+			toast._timer = setTimeout(function () {
+				toast.classList.remove("visivel");
+			}, 2500);
+		}
+
+		// ============ MÉTRICAS ============
+		function atualizarMetricas() {
+			var alunos = USUARIOS.filter(function (u) { return u.papel === "Aluno" && u.status === "Ativo"; }).length;
+			var egressos = USUARIOS.filter(function (u) { return u.papel === "Egresso" && u.status === "Ativo"; }).length;
+			var comunicadores = USUARIOS.filter(function (u) { return u.papel === "Comunicador" && u.status === "Ativo"; }).length;
+
+			document.getElementById("valorAlunos").textContent = alunos;
+			document.getElementById("valorEgressos").textContent = egressos;
+			document.getElementById("valorComunicadores").textContent = comunicadores;
+			document.getElementById("valorPendentes").textContent = SOLICITACOES.length;
+		}
+// ============ RENDERIZAÇÃO ============
+		function renderizarPendentes() {
+			var lista = document.getElementById("listaPendentes");
+			lista.innerHTML = "";
+
+			if (SOLICITACOES.length === 0) {
+				lista.innerHTML = '<li class="vazio">Nenhuma solicitação pendente.</li>';
+				return;
+			}
+
+			SOLICITACOES.forEach(function (s) {
+				var li = document.createElement("li");
+				li.className = "item-usuario";
+				li.setAttribute("data-id", s.id);
+
+				var avatar = document.createElement("div");
+				avatar.className = "avatar";
+				avatar.textContent = iniciais(s.nome);
+
+				var dados = document.createElement("div");
+				dados.className = "dados-usuario";
+				var infoPend = document.createElement("div");
+				infoPend.innerHTML =
+					'<span style="font-weight:600; color:#1F496B; font-size:13px;">' + escaparTexto(s.papel) + '</span>' +
+					' &middot; ' + escaparTexto(s.curso) +
+					' &middot; enviado ' + escaparTexto(s.enviadoEm);
+				dados.innerHTML =
+					'<div class="nome">' + escaparTexto(s.nome) + '</div>' +
+					'<div class="email">' + escaparTexto(s.email) + '</div>';
+				dados.appendChild(infoPend);
+
+				var acoes = document.createElement("div");
+				acoes.className = "grupo-acoes";
+
+				var botaoAceitar = document.createElement("button");
+				botaoAceitar.className = "botao-aceitar";
+				botaoAceitar.innerHTML = '<i class="fa-solid fa-check"></i> Aceitar';
+				botaoAceitar.addEventListener("click", function () {
+					decidirSolicitacao(s.id, true);
+				});
+
+				var botaoRecusar = document.createElement("button");
+				botaoRecusar.className = "botao-recusar";
+				botaoRecusar.innerHTML = '<i class="fa-solid fa-xmark"></i> Recusar';
+				botaoRecusar.addEventListener("click", function () {
+					decidirSolicitacao(s.id, false);
+				});
+
+				acoes.appendChild(botaoAceitar);
+				acoes.appendChild(botaoRecusar);
+
+				li.appendChild(avatar);
+				li.appendChild(dados);
+				li.appendChild(acoes);
+				lista.appendChild(li);
+			});
+		}
+
+		function renderizarComunicadores() {
+			var lista = document.getElementById("listaComunicadores");
+			lista.innerHTML = "";
+
+			var comunicadores = USUARIOS.filter(function (u) {
+				return u.papel === "Comunicador" && u.status === "Ativo";
+			});
+
+			if (comunicadores.length === 0) {
+				lista.innerHTML = '<li class="vazio">Nenhum comunicador ativo.</li>';
+				return;
+			}
+
+			comunicadores.forEach(function (c) {
+				var li = document.createElement("li");
+				li.className = "item-usuario";
+
+				var avatar = document.createElement("div");
+				avatar.className = "avatar avatar-ativo";
+				avatar.textContent = iniciais(c.nome);
+
+				var dados = document.createElement("div");
+				dados.className = "dados-usuario";
+				dados.innerHTML =
+					'<div class="nome">' + escaparTexto(c.nome) + '</div>' +
+					'<div class="email">' + escaparTexto(c.curso) + '</div>';
+
+				var badge = document.createElement("span");
+				badge.className = "badge-status badge-ativo";
+				badge.textContent = "Online " + c.ultimoAcesso;
+
+				li.appendChild(avatar);
+				li.appendChild(dados);
+				li.appendChild(badge);
+				lista.appendChild(li);
+			});
+		}
+
+		function renderizarTabela() {
+			var tbody = document.getElementById("corpoTabela");
+			tbody.innerHTML = "";
+
+			var termo = estadoBusca.termo.trim().toLowerCase();
+
+			var resultados = USUARIOS.filter(function (u) {
+				var casaTexto = !termo ||
+					u.nome.toLowerCase().includes(termo) ||
+					u.email.toLowerCase().includes(termo);
+				var casaPapel = estadoBusca.tipo === "Todos" || u.papel === estadoBusca.tipo;
+				var casaStatus = !estadoBusca.somenteAtivos || u.status === "Ativo";
+				return casaTexto && casaPapel && casaStatus;
+			});
+
+			if (resultados.length === 0) {
+				tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:30px; color:#6b7280;">Nenhum usuário encontrado.</td></tr>';
+				return;
+			}
+
+			resultados.forEach(function (u) {
+				var tr = document.createElement("tr");
+
+				var tdUsuario = document.createElement("td");
+				tdUsuario.innerHTML =
+					'<div class="celula-nome">' + escaparTexto(u.nome) + '</div>' +
+					'<div class="celula-email">' + escaparTexto(u.email) + '</div>';
+
+				var tdPapel = document.createElement("td");
+				tdPapel.textContent = u.papel;
+
+				var tdCurso = document.createElement("td");
+				tdCurso.textContent = u.curso;
+
+				var tdStatus = document.createElement("td");
+				var badge = document.createElement("span");
+				badge.className = "badge-status " + (u.status === "Ativo" ? "badge-ativo" : "badge-inativo");
+				badge.textContent = u.status;
+				tdStatus.appendChild(badge);
+
+				var tdAcesso = document.createElement("td");
+				tdAcesso.textContent = u.ultimoAcesso;
+
+				tr.appendChild(tdUsuario);
+				tr.appendChild(tdPapel);
+				tr.appendChild(tdCurso);
+				tr.appendChild(tdStatus);
+				tr.appendChild(tdAcesso);
+				tbody.appendChild(tr);
+			});
+		}
+<!-- ============ AÇÕES ============ -->
+		function decidirSolicitacao(id, aceito) {
+			var solicitacao = null;
+			for (var i = 0; i < SOLICITACOES.length; i++) {
+				if (SOLICITACOES[i].id === id) {
+					solicitacao = SOLICITACOES[i];
+					SOLICITACOES.splice(i, 1);
+					break;
+				}
+			}
+
+			renderizarPendentes();
+			atualizarMetricas();
+
+			if (!solicitacao) return;
+			mostrarToast("Solicitação de " + solicitacao.nome + (aceito ? " aceita" : " recusada"));
+		}
+
+		// ============ FILTROS DE BUSCA ============
+		function montarFiltrosTipo() {
+			var container = document.getElementById("filtrosTipo");
+			var rotuloCheckbox = container.querySelector(".filtro-somente-ativos");
+
+			FILTROS.forEach(function (tipo) {
+				var botao = document.createElement("button");
+				botao.type = "button";
+				botao.className = "filtro-botao" + (tipo === estadoBusca.tipo ? " ativo" : "");
+				botao.textContent = tipo;
+				botao.addEventListener("click", function () {
+					estadoBusca.tipo = tipo;
+					// Atualiza classes de todos os botões de filtro
+					var botoes = container.querySelectorAll(".filtro-botao");
+					botoes.forEach(function (b) {
+						b.classList.toggle("ativo", b.textContent === tipo);
+					});
+					renderizarTabela();
+				});
+				container.insertBefore(botao, rotuloCheckbox);
+			});
+		}
+
+		// ============ INICIALIZAÇÃO ============
+		function inicializar() {
+			montarFiltrosTipo();
+
+			document.getElementById("inputBusca").addEventListener("input", function (e) {
+				estadoBusca.termo = e.target.value;
+				renderizarTabela();
+			});
+
+			document.getElementById("somenteAtivos").addEventListener("change", function (e) {
+				estadoBusca.somenteAtivos = e.target.checked;
+				renderizarTabela();
+			});
+
+			renderizarPendentes();
+			renderizarComunicadores();
+			renderizarTabela();
+			atualizarMetricas();
+		}
+
+		document.addEventListener("DOMContentLoaded", inicializar);
+	</script>
+</body>
+
+</html>
