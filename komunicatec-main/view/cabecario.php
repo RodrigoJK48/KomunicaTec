@@ -14,6 +14,9 @@
 				<button class="botao-especial" onclick="location.href='register.html'">Cadastrar</button>
 			<?php else: // Se a variável foi declarada ?>
 				<button class="botao-visualizar" onclick="location.href='publicacao.php'">Publicações</button>
+				<?php if (isset($_SESSION['nivel_acesso']) && $_SESSION['nivel_acesso'] == 'administrador'): // Botão exclusivo do administrador ?>
+					<button class="botao-visualizar" onclick="location.href='administracao.html'">Administração</button>
+				<?php endif; ?>
 				<?php
 				echo '<img src="imagens/user_icon.jpg" alt="Acessar Perfil" class="nav-profile" title="Acessar Perfil"';
 				if (isset($_SESSION['id_cpf']))
